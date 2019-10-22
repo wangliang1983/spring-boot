@@ -36,7 +36,6 @@
 		<dependency>
 			<groupId>cn.linkedcare.springboot</groupId>
 			<artifactId>spring-boot-redis</artifactId>
-			<version>0.0.5</version>
 		</dependency>
 	</dependencies>
 	<build>

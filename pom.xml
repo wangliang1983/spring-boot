@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>cn.linkedcare.springboot</groupId>
@@ -14,7 +15,7 @@
 		<module>spring-boot-token</module>
 	</modules>
 	<properties>
-		<spring.booter>1.5.21.RELEASE</spring.booter>
+		<spring.booter>1.5.0.RELEASE</spring.booter>
 		<redis.version>2.9.0</redis.version>
 		<dubbo.version>2.5.3</dubbo.version>
 		<reflections.version>0.9.11</reflections.version>
@@ -28,9 +29,20 @@
 		<elasticsearch.version>2.0.0.M3</elasticsearch.version>
 		<config.version>1.3.3.RELEASE</config.version>
 		<kafka.version>1.1.4.RELEASE</kafka.version>
+		<spring.boot.version>0.0.5</spring.boot.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>cn.linkedcare.springboot</groupId>
+				<artifactId>spring-boot-cachecenter</artifactId>
+				<version>${spring.boot.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.linkedcare.springboot</groupId>
+				<artifactId>spring-boot-redis</artifactId>
+				<version>${spring.boot.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>io.netty</groupId>
 				<artifactId>netty-all</artifactId>
