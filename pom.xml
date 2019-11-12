@@ -13,6 +13,7 @@
 		<module>spring-boot-kafka</module>
 		<module>spring-boot-delay-queue</module>
 		<module>spring-boot-token</module>
+		<module>spring-boot-c2s</module>
 	</modules>
 	<properties>
 		<spring.booter>1.5.0.RELEASE</spring.booter>
