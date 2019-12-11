@@ -10,6 +10,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.slots.block.RuleConstant;
 import com.alibaba.fastjson.JSON;
 
 import cn.linkedcare.springboot.cachecenter.annotation.Cache;
@@ -100,11 +102,12 @@ public class RemoteCacheAop implements BaseAop{
 	
 	@Override
 	public int order() {
-		// TODO Auto-generated method stub
 		return 1;
 	}
 
+	
 	@Override
+	@SentinelResource(value="cache-center")
 	public CacheResult executeBefore(Object target, Method method, Object[] args) {
 		boolean result = true;
 		Object object = doGetCache(target,method,args);
