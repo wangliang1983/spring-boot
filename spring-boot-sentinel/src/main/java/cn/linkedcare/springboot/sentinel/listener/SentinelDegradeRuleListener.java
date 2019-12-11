@@ -1,4 +1,4 @@
-package cn.linkedcare.springboot.sentinel.config;
+package cn.linkedcare.springboot.sentinel.listener;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import cn.linkedcare.springboot.sentinel.annotation.SentinelDegradeRule;
  * @author wl
  *
  */
-public class SentinelDegradeRuleConfig implements BeanPostProcessor{
+public class SentinelDegradeRuleListener implements BeanPostProcessor{
 
 	private static List<DegradeRule> rules = new ArrayList<DegradeRule>();
 	

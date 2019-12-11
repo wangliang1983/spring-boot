@@ -1,4 +1,4 @@
-package cn.linkedcare.springboot.sentinel.config;
+package cn.linkedcare.springboot.sentinel.listener;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ import cn.linkedcare.springboot.sentinel.annotation.SentinelFlowRule;
  * @author wl
  *
  */
-public class SentinelFlowRuleConfig implements BeanPostProcessor{
+public class SentinelFlowRuleListener implements BeanPostProcessor{
 
 	private static List<FlowRule> rules = new ArrayList<FlowRule>();
 	
