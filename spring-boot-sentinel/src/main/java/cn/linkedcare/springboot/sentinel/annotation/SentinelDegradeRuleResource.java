@@ -31,4 +31,10 @@ public @interface SentinelDegradeRuleResource {
      * @return
      */
     Class<?> blockHandlerClass() default Void.class;
+    
+    /**
+     * 是否是异步方法
+     * @return
+     */
+    boolean isAsync() default false;
 }
