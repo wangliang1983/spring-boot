@@ -7,7 +7,7 @@ import com.alibaba.csp.sentinel.slots.block.RuleConstant;
  * @author wl
  *
  */
-public @interface FlowRule {
+public @interface SentinelFlowRule {
 	public static enum SentinelFlowType{
 		qps(RuleConstant.FLOW_GRADE_QPS),
 		thread(RuleConstant.FLOW_GRADE_THREAD);

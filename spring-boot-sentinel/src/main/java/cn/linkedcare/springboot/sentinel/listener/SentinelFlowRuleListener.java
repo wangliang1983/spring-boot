@@ -10,8 +10,8 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 import com.alibaba.csp.sentinel.slots.block.degrade.DegradeRule;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;
 
-import cn.linkedcare.springboot.sentinel.annotation.DegradeRule;
-import cn.linkedcare.springboot.sentinel.annotation.FlowRule;
+import cn.linkedcare.springboot.sentinel.annotation.SentinelDegradeRule;
+import cn.linkedcare.springboot.sentinel.annotation.SentinelFlowRule;
 
 /**
  * 熔断规则适配
@@ -32,7 +32,7 @@ public class SentinelFlowRuleListener implements BeanPostProcessor{
 		
 		
 		for(Method m:methods) {
-			FlowRule rule = m.getAnnotation(FlowRule.class);
+			SentinelFlowRuleResource rule = m.getAnnotation(SentinelFlowRuleResource.class);
 			
 			FlowRule flowFule = new FlowRule();
 			

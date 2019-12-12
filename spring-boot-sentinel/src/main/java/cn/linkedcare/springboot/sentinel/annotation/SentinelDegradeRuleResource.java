@@ -1,16 +1,23 @@
 package cn.linkedcare.springboot.sentinel.annotation;
 
+import java.lang.annotation.Target;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
 /**
  * 熔断相关资源
  * @author wl
  *
  */
-public @interface DegradeRuleResource {
+@Target({ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface SentinelDegradeRuleResource {
 	/**
 	 * 熔断ku'c
 	 * @return
 	 */
-	DegradeRule degradeRule();
+	SentinelDegradeRule degradeRule();
 	
 	/**
 	 * 限流后处理的方法

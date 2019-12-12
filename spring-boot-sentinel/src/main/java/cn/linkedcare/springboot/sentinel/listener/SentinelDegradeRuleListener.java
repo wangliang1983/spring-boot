@@ -9,7 +9,9 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 
 import com.alibaba.csp.sentinel.slots.block.degrade.DegradeRule;
 
-import cn.linkedcare.springboot.sentinel.annotation.DegradeRule;
+import cn.linkedcare.springboot.sentinel.annotation.SentinelDegradeRule;
+import cn.linkedcare.springboot.sentinel.annotation.SentinelDegradeRuleResource;
+
 
 /**
  * 熔断规则相关
@@ -30,7 +32,8 @@ public class SentinelDegradeRuleListener implements BeanPostProcessor{
 		
 		
 		for(Method m:methods) {
-			DegradeRule rule = m.getAnnotation(DegradeRule.class);
+			SentinelDegradeRuleResource degradeRuleResource = m.getAnnotation(SentinelDegradeRuleResource.class);
+			SentinelDegradeRule rule = degradeRuleResource.degradeRule();
 			
 			DegradeRule degradeRule = new DegradeRule();
 			
@@ -46,7 +49,6 @@ public class SentinelDegradeRuleListener implements BeanPostProcessor{
 	}
 
 	public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-		
 		return bean;
 	}
 
