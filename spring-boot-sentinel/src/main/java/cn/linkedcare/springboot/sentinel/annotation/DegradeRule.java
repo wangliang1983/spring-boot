@@ -2,7 +2,7 @@ package cn.linkedcare.springboot.sentinel.annotation;
 
 import com.alibaba.csp.sentinel.slots.block.RuleConstant;
 
-public @interface SentinelDegradeRule {
+public @interface DegradeRule {
 	
 	public static enum DegradeRuleType{
 		averageRT(RuleConstant.DEGRADE_GRADE_RT),//平均响应时间
