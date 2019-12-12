@@ -23,7 +23,7 @@ public @interface SentinelDegradeRuleResource {
 	 * 限流后处理的方法
 	 * @return
 	 */
-    String blockHandlerMethod() default "";
+    String blockHandlerMethod();
 
 
     
