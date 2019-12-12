@@ -28,15 +28,7 @@ public @interface SentinelFlowRuleResource {
     String blockHandlerMethod() default "";
 
     
-    /**
-     * 限流后处理的类型
-     * @return
-     */
-    Class<?> blockHandlerClass() default Void.class;
+
 	
-    /**
-     * 是否是异步方法
-     * @return
-     */
-    boolean isAsync() default false;
+   
 }
