@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>cn.linkedcare.springboot</groupId>
 	<artifactId>spring-boot</artifactId>
-	<version>0.0.6</version>
+	<version>0.2.36</version>
 	<packaging>pom</packaging>
 	<modules>
 		<module>spring-boot-redis</module>
@@ -17,7 +17,7 @@
 		<module>spring-boot-sentinel</module>
 	</modules>
 	<properties>
-		<spring.booter>1.5.0.RELEASE</spring.booter>
+		<spring.booter>2.2.2.RELEASE</spring.booter>
 		<redis.version>2.9.0</redis.version>
 		<dubbo.version>2.5.3</dubbo.version>
 		<reflections.version>0.9.11</reflections.version>
@@ -31,7 +31,7 @@
 		<elasticsearch.version>2.0.0.M3</elasticsearch.version>
 		<config.version>1.3.3.RELEASE</config.version>
 		<kafka.version>1.1.4.RELEASE</kafka.version>
-		<spring.boot.version>0.0.6</spring.boot.version>
+		<spring.boot.version>0.2.36</spring.boot.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>

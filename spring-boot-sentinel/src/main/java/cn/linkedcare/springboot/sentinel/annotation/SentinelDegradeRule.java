@@ -33,7 +33,7 @@ public @interface SentinelDegradeRule {
 	
 	double count() default 0.8;//默认异常比列为80%的时候熔断
 
-	int timeWindow() default 60;//时间窗口内熔断
+	int timeWindow() default 10;//时间窗口内熔断
 	
 	
 }

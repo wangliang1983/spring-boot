@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.stereotype.Component;
 
 import com.alibaba.csp.sentinel.slots.block.degrade.DegradeRule;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;
@@ -19,6 +20,7 @@ import cn.linkedcare.springboot.sentinel.annotation.SentinelFlowRuleResource;
  * @author wl
  *
  */
+@Component
 public class SentinelFlowRuleListener implements BeanPostProcessor{
 
 	private static List<FlowRule> rules = new ArrayList<FlowRule>();
@@ -34,16 +36,20 @@ public class SentinelFlowRuleListener implements BeanPostProcessor{
 		
 		for(Method m:methods) {
 			SentinelFlowRuleResource flowRuleResource = m.getAnnotation(SentinelFlowRuleResource.class);
-			SentinelFlowRule  rule = flowRuleResource.sentinelFlowRule();
 			
-			FlowRule flowFule = new FlowRule();
-			
-			flowFule.setResource(rule.resourceName());
-			flowFule.setGrade(rule.type().getValue());
-			flowFule.setCount(rule.count());
-			flowFule.setControlBehavior(rule.controlBehavior().getValue());
-	
-			rules.add(flowFule);
+			if(flowRuleResource!=null) {
+				SentinelFlowRule  rule = flowRuleResource.sentinelFlowRule();
+				
+				FlowRule flowFule = new FlowRule();
+				
+				flowFule.setResource(rule.resourceName());
+				flowFule.setGrade(rule.type().getValue());
+				flowFule.setCount(rule.count());
+				flowFule.setControlBehavior(rule.controlBehavior().getValue());
+		
+				rules.add(flowFule);
+		
+			}
 		}
 		
 		return bean;
