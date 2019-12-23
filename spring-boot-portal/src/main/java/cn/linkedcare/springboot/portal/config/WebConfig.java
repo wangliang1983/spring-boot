@@ -5,6 +5,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import cn.linkedcare.springboot.portal.aop.HttpSessionInterceptor;
+import cn.linkedcare.springboot.portal.aop.PermissionInterceptor;
 
 
 @Configuration
@@ -17,6 +18,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	public void addInterceptors(InterceptorRegistry registry) {
 		
 		registry.addInterceptor(new HttpSessionInterceptor());
+		registry.addInterceptor(new PermissionInterceptor());
+		
 	}
 
 }
