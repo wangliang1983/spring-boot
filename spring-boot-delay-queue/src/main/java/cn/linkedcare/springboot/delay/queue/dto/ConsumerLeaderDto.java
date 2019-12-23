@@ -14,4 +14,5 @@ public class ConsumerLeaderDto {
 	private ConsumerMethodDto consumerMethodDto;
 	private ReentrantLock lock;
 	private Condition condition;
+	
 }

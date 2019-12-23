@@ -42,6 +42,7 @@ public class RemoteCacheAop implements BaseAop{
 	public static class CacheResult {
 		private boolean result;//代表命中缓存，不执行相关方法
 		private Object object;
+		
 	}
 	
 	/**

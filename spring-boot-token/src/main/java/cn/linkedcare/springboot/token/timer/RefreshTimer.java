@@ -61,7 +61,7 @@ public class RefreshTimer implements BeanPostProcessor, ApplicationListener<Spri
 				client.start();
 				client.blockUntilConnected();
 				log.info("token Task zk connect");
-
+				
 				zkLeaderShip = new ZkLeaderShip(list,client, ZK_PATH);
 				zkLeaderShip.start();
 			} catch (InterruptedException | IOException e) {

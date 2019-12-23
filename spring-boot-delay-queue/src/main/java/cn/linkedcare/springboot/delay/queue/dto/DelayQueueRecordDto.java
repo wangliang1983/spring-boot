@@ -25,5 +25,7 @@ public class DelayQueueRecordDto {
 	public int hashCode(){
 		return id.hashCode();
 	}
+
+	
 	
 }

@@ -30,7 +30,7 @@
 		<web.el.version>2.2.6</web.el.version>
 		<elasticsearch.version>2.0.0.M3</elasticsearch.version>
 		<config.version>1.3.3.RELEASE</config.version>
-		<kafka.version>1.1.4.RELEASE</kafka.version>
+		<kafka.version>2.3.4.RELEASE</kafka.version>
 		<spring.boot.version>0.2.36</spring.boot.version>
 	</properties>
 	<dependencyManagement>

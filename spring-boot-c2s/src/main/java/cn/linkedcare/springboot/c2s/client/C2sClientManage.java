@@ -87,7 +87,6 @@ public class C2sClientManage {
 			var10.printStackTrace();
 			log.error("exception:", var10);
 			throw new RuntimeException(var10);
-
 		}
 
 		serversClients = (List) this.serversMap.get(path);

@@ -10,4 +10,5 @@ public class ConsumerMethodDto {
 	private Method method;
 	private boolean autoCommit;
 	private String[] topics;
+	
 }
