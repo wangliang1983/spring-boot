@@ -34,7 +34,7 @@
 		<dependency>
 			<groupId>cn.linkedcare</groupId>
 			<artifactId>mall-common</artifactId>
-			<version>0.2.32</version>
+			<version>0.2.36</version>
 		</dependency>
     	<dependency>
     		<groupId>cn.linkedcare.springboot</groupId>
