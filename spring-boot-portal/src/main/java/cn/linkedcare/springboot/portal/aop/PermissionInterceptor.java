@@ -1,18 +1,22 @@
 package cn.linkedcare.springboot.portal.aop;
 
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 import java.util.HashSet;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.aop.framework.AopProxyUtils;
+import org.springframework.aop.support.AopUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
 
-import cn.linkedcare.mall.common.annotation.Permission;
 import cn.linkedcare.mall.common.dto.EnvKeyEnum;
 import cn.linkedcare.mall.common.dto.MallResponse;
 import cn.linkedcare.mall.common.dto.Result;
@@ -20,6 +24,7 @@ import cn.linkedcare.mall.common.dto.auth.SaasContextDto;
 import cn.linkedcare.mall.common.dto.util.ExpressionUtil;
 import cn.linkedcare.mall.common.dto.util.JwtUtil;
 import cn.linkedcare.mall.common.dto.util.Validator;
+import cn.linkedcare.springboot.portal.annotation.permission.Permission;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -70,8 +75,10 @@ public class PermissionInterceptor  implements HandlerInterceptor {
 	private boolean hasPermission(Object handler, List<String> permissionList) {
         if (handler instanceof HandlerMethod) {
             HandlerMethod handlerMethod = (HandlerMethod) handler;
-            // 获取方法上的注解
+            
             Permission permission = handlerMethod.getMethod().getAnnotation(Permission.class);
+           
+            
             // 如果方法上的注解为空 则获取类的注解
             if (permission == null) {
             	permission = handlerMethod.getMethod().getDeclaringClass().getAnnotation(Permission.class);
