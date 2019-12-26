@@ -73,34 +73,34 @@ public class PermissionInterceptor  implements HandlerInterceptor {
 	}
 
 	private boolean hasPermission(Object handler, List<String> permissionList) {
-        if (handler instanceof HandlerMethod) {
-            HandlerMethod handlerMethod = (HandlerMethod) handler;
-            
-            Permission permission = handlerMethod.getMethod().getAnnotation(Permission.class);
-           
-            
-            // 如果方法上的注解为空 则获取类的注解
-            if (permission == null) {
-            	permission = handlerMethod.getMethod().getDeclaringClass().getAnnotation(Permission.class);
-            }
-            
-            // 如果标记了注解，则判断权限
-            if (permission != null && Validator.notNullAndEmpty(permission.value()) ) {
-            	if(null == permissionList || 0 >= permissionList.size()){
-            		return false;
-            	}
-            	log.info("permission.value:{}, permissionList:{}", permission.value(), JSON.toJSON(permissionList));
-            	if(ExpressionUtil.evaluate(permission.value(), new HashSet<>(permissionList))){
-            		//有权限
-            		return true;
-            	}
-                
-            	return false;
-            }else{
-            	//如果没有标记注解,则无需进行权限认证
-            	return true;
-            }
-        }
+//        if (handler instanceof HandlerMethod) {
+//            HandlerMethod handlerMethod = (HandlerMethod) handler;
+//            
+//            Permission permission = handlerMethod.getMethod().getAnnotation(Permission.class);
+//           
+//            
+//            // 如果方法上的注解为空 则获取类的注解
+//            if (permission == null) {
+//            	permission = handlerMethod.getMethod().getDeclaringClass().getAnnotation(Permission.class);
+//            }
+//            
+//            // 如果标记了注解，则判断权限
+//            if (permission != null && Validator.notNullAndEmpty(permission.value()) ) {
+//            	if(null == permissionList || 0 >= permissionList.size()){
+//            		return false;
+//            	}
+//            	log.info("permission.value:{}, permissionList:{}", permission.value(), JSON.toJSON(permissionList));
+//            	if(ExpressionUtil.evaluate(permission.value(), new HashSet<>(permissionList))){
+//            		//有权限
+//            		return true;
+//            	}
+//                
+//            	return false;
+//            }else{
+//            	//如果没有标记注解,则无需进行权限认证
+//            	return true;
+//            }
+//        }
         return true;
     }
 	
