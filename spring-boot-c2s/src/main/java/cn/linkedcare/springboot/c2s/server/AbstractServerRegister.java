@@ -33,20 +33,20 @@ public abstract class AbstractServerRegister {
 		return JSON.toJSONString(serverDto);
 	}
 
-	@Value("${c2s.zookeeper.path}")
+	@Value("${c2s.path}")
 	public void setPath(String path) {
-		path = path;
+		AbstractServerRegister.path = path;
 	}
 
 	@Value("${c2s.server.port}")
 	public void setPort(int port) {
-		port = port;
+		AbstractServerRegister.port = port;
 	}
 
 	public AbstractServerRegister() {
-		ip = IPUtils.getIp();
+		AbstractServerRegister.ip = IPUtils.getIp();
 
-		password = UUID.randomUUID().toString();
+		AbstractServerRegister.password = UUID.randomUUID().toString();
 	}
 
 	public static String getPath() {
