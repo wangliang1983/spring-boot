@@ -118,6 +118,10 @@ public class HttpSessionInterceptor  implements HandlerInterceptor{
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+
+		
 		String platform = request.getHeader(PLATFORM);
 		
 		log.info("http headers:{},{}",platform,JSON.toJSONString(request.getHeaderNames()));
@@ -152,7 +156,6 @@ public class HttpSessionInterceptor  implements HandlerInterceptor{
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
 		
-		response.setCharacterEncoding("UTF-8");
 		
 		String platform = request.getHeader(PLATFORM);
 		if(platform==null){
