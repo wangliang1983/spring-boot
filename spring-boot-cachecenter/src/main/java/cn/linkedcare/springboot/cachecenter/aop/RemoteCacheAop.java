@@ -137,14 +137,14 @@ public class RemoteCacheAop implements BaseAop{
         		
         		
         		String key = getKey(cache.keyMethod(),target,method,args);
-            	redisTemplate.setex(key.getBytes(ENCODEING),cache.timeout(),JSON.toJSONString(result).getBytes(ENCODEING));
+            	redisTemplate.setex(key.getBytes(ENCODEING),cache.timeout(),JSON.toJSONStringWithDateFormat(result,"yyyy-MM-dd'T'HH:mm:ss.SSSZ").getBytes(ENCODEING));
             	return true;
         	}
         	
         	CacheReload cacheReload = method.getAnnotation(CacheReload.class);
         	if(cacheReload!=null){
         		String key = getKey(cacheReload.keyMethod(),target,method,args);
-            	redisTemplate.setex(key.getBytes(ENCODEING),cache.timeout(),JSON.toJSONString(result).getBytes(ENCODEING));
+            	redisTemplate.setex(key.getBytes(ENCODEING),cache.timeout(),JSON.toJSONStringWithDateFormat(result,"yyyy-MM-dd'T'HH:mm:ss.SSSZ").getBytes(ENCODEING));
             	return true;
         	}
         	
